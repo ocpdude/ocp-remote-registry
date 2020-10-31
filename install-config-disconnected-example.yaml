@@ -1,0 +1,49 @@
+apiVersion: v1
+baseDomain: example.com
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  platform: {}
+  replicas: 3
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform: {}
+  replicas: 3
+metadata:
+  creationTimestamp: null
+  name: private
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 10.0.0.0/16
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  azure:
+    baseDomainResourceGroupName: RED-HAT-OCP001
+    region: eastus
+    networkResourceGroupName: PRIVATE-OCP001
+    virtualNetwork: PRIVATE-OCP001-vnet
+    controlPlaneSubnet: master-subnet
+    computeSubnet: worker-subnet
+publish: External
+pullSecret: '{"auths":{"registry.private.example.com:5000":{"auth": "c2hha2VyOnJlZGhhdA==","email": "shaker@example.com"}}}'
+sshKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQ...'
+imageContentSources:
+- mirrors:
+  - registry.private.example.com:5000/ocp4/openshift4
+  source: quay.io/openshift-release-dev/ocp-release
+- mirrors:
+  - registry.private.example.com:5000/ocp4/openshift4
+  source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
+additionalTrustBundle: |
+     -----BEGIN CERTIFICATE-----
+     ...
+     ...
+     -----END CERTIFICATE-----
