@@ -1,6 +1,6 @@
 
 # Building an OpenShift Disconnected Registry on Azure
-##### NOTE: Azure uses a .vhd image, you can download this manually from cloud.redhat.com or use the Azure build version refereced in the UPI build instructions contained in this repo.
+##### NOTE: Azure uses a .vhd image, you can download this manually from cloud.redhat.com or use the Azure upload steps referenced in the UPI build instructions contained in this repo. The video demo of this install can be found on YouTube here : https://youtu.be/e0whE0SnHfY
 
 
 ## We need to create a directory to hold the disconnected registry.
@@ -8,10 +8,10 @@
 0. Install podman : https://podman.io/getting-started/installation \
 *You will also need packages: curl, wget & jq (ubuntu: apache2-utils or centos: httpd-tools)
 
-1. We will need to create/establish a CA and Server Certificate for the install, the  CA certificate will be installed in our install-config.yaml and the registry will host the server certificate. If this step isn't done, TLS errors will prevent nodes from connecting and downloading packages. The CA and Server cert our out of scope for this document; however, self-signed proceedures can be found here: \
+1. We will need to create/establish a CA and Server Certificate for the install, the  CA certificate will be installed in our install-config.yaml and the registry will host the server certificate. If this step isn't done, TLS errors will prevent nodes from connecting and downloading packages. The CA and Server cert our out of scope for this document; however, self-signed procedures can be found here: \
 https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/
 
-2. A note on firewalls, if your registy server does have an active firewall permit tcp/5000
+2. A note on firewalls, if your registry server does have an active firewall permit tcp/5000
 
     `ex: (ubuntu) sudo ufw allow 5000/tcp`\
     `ex: (centos) firewall-cmd --add-port=5000/tcp --permanent`
@@ -81,7 +81,7 @@ Refer to: https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/relea
     export UPSTREAM_REPO="openshift-release-dev"
     export LOCAL_SECRET_JSON="${HOME}/pull-secret-2.json"
     ```
-10. Setup Registry Authenication
+10. Setup Registry Authentication
 
     Encode your credentials\
     ```
