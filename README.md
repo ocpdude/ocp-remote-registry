@@ -10,7 +10,7 @@ The video demo of this install can be found on YouTube here : (part 1: https://y
 0. Install podman : https://podman.io/getting-started/installation \
 *You will also need packages: curl, wget & jq (ubuntu: apache2-utils or centos: httpd-tools)
 
-1. We will need to create/establish a CA and Server Certificate for the install, the  CA certificate will be installed in our install-config.yaml and the registry will host the server certificate. If this step isn't done, TLS errors will prevent nodes from connecting and downloading packages. The CA and Server cert our out of scope for this document; however, self-signed procedures can be found here: \
+1. We will need to create/establish a CA and Server Certificate for the install, the  CA certificate will be installed in our install-config.yaml and the registry will host the server certificate. If this step isn't done, TLS errors will prevent nodes from connecting and downloading packages. The CA and Server cert is out of scope for this document; however, self-signed procedures can be found here: \
 https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/
 
 2. A note on firewalls, if your registry server does have an active firewall permit tcp/5000
