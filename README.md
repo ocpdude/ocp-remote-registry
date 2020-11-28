@@ -1,8 +1,10 @@
 
 # Building an OpenShift Disconnected Registry on Azure
-##### NOTE: Azure uses a .vhd image, you can download this manually from cloud.redhat.com or use the Azure upload steps referenced in the UPI build instructions contained in this repo.
+### NOTE: Azure uses a .vhd image, you can download this manually from cloud.redhat.com or by visiting https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/latest/latest/
 
-The video demo of this install can be found on YouTube here : (part 1: https://youtu.be/e0whE0SnHfY) & (part 2: https://youtu.be/dMUX0c29988)
+The video demo of this install can be found on YouTube here : \
+    Part 1: https://youtu.be/e0whE0SnHfY \
+    Part 2: https://youtu.be/dMUX0c29988
 
 
 ## We need to create a directory to hold the disconnected registry.
